@@ -7,7 +7,9 @@
   "context": "browser",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist/** && parcel build --no-source-maps"
+    "clean": "rm -rf dist/**",
+    "build": "npm run clean && parcel build --no-source-maps",
+    "postinstall": "npm run build"
   },
   "keywords": [
     "gtm",
@@ -27,5 +29,4 @@
       "distDir": "dist"
     }
   }
-
 }
