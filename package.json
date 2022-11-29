@@ -1,0 +1,31 @@
+{
+  "name": "gtm-async",
+  "version": "0.1.0",
+  "description": "Google Tag Manager async initialization",
+  "source": "src/index.js",
+  "main": "dist/gtm-loader.js",
+  "context": "browser",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist/** && parcel build --no-source-maps"
+  },
+  "keywords": [
+    "gtm",
+    "google-tag-manager",
+    "googletagmanager",
+    "google",
+    "tracking",
+    "analytics"
+  ],
+  "author": "Zoltan Radics (zoltan.radics@gmail.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.0"
+  },
+  "targets": {
+    "default": {
+      "distDir": "dist"
+    }
+  }
+
+}
