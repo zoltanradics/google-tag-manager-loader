@@ -1,7 +1,7 @@
 {
-  "name": "gtm-async",
+  "name": "gtm-loader",
   "version": "0.1.0",
-  "description": "Google Tag Manager async initialization",
+  "description": "Async loader for Google Tag Manager sdk",
   "source": "src/index.js",
   "main": "dist/gtm-loader.js",
   "context": "browser",
