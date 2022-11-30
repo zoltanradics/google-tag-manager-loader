@@ -1,4 +1,4 @@
-function initGTM(dataLayerKey, containerId) {
+export default function(dataLayerKey, containerId) {
 	// Check if script is loaded into a browser environment
 	if (typeof window === 'undefined') {
 		throw new Error('initGTM can only loaded into a browser environment!')
