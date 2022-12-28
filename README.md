@@ -1,2 +1,3 @@
 # gtm-loader
-Async loader for Google Tag Manager sdk
+
+Async loader to control when and how you want to load Google Tag Manager SDK.
