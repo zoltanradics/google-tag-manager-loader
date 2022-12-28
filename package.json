@@ -2,9 +2,7 @@
   "name": "gtm-loader",
   "version": "0.1.0",
   "description": "Async loader for Google Tag Manager sdk",
-  "context": "browser",
-  "outputFormat": "esmodule",
-  "source": "src/index.ts",
+  "source": "src/gtm-loader.ts",
   "main": "dist/gtm-loader.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -29,8 +27,16 @@
     "typescript": "^4.9.4"
   },
   "targets": {
-    "default": {
-      "distDir": "dist",
+    "default-global": {
+      "context": "browser",
+      "source": "src/gtm-loader.ts",
+      "distDir": "dist/global",
+      "outputFormat": "global"
+    },
+    "default-es": {
+      "context": "browser",
+      "source": "src/gtm-loader.ts",
+      "distDir": "dist/esmodule",
       "outputFormat": "esmodule"
     }
   }
