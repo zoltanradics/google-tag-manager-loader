@@ -29,13 +29,11 @@
   "targets": {
     "default-global": {
       "context": "browser",
-      "source": "src/gtm-loader.ts",
       "distDir": "dist/global",
       "outputFormat": "global"
     },
     "default-es": {
       "context": "browser",
-      "source": "src/gtm-loader.ts",
       "distDir": "dist/esmodule",
       "outputFormat": "esmodule"
     }
