@@ -1,4 +1,17 @@
-export function gtmLoader(containerId: string, dataLayerKey: string = 'dataLayer', timeoutDuration: number = 2000): Promise<Event> {
+
+/**
+ * 
+ * GTM Loader
+ * 
+ * 
+ * 
+ * @param containerId (string)
+ * @param dataLayerKey (string)
+ * @param timeoutDuration (integer)
+ * @returns Promise
+ */
+
+export default function gtmLoader(containerId: string, dataLayerKey: string = 'dataLayer', timeoutDuration: number = 2000): Promise<Event> {
 	// Check if script is loaded into a browser environment
 	if (typeof window === 'undefined') {
 		throw new Error('initGTM can only loaded into a browser environment!');
@@ -9,22 +22,20 @@ export function gtmLoader(containerId: string, dataLayerKey: string = 'dataLayer
 		throw new Error('Container id is not defined!');
 	}
 
-	// Define or use data later array
-	window[dataLayerKey] = window[dataLayerKey] || [];
+	// Prepare dataLayer array for GTM
+	window[dataLayerKey] = window[dataLayerKey] || [{ 'gtm.start': new Date().getTime(), 'event': 'gtm.js' }];
 
-	// Push GTM start event
-	window[dataLayerKey].push({ 'gtm.start': new Date().getTime(), 'event': 'gtm.js' });
-
-	// Create script element
+	// Create script element to load GTM main script
 	const scriptElement = document.createElement('script');
-	scriptElement.src = generateUrl(containerId, dataLayerKey);
-	scriptElement.async = true;
+	scriptElement.setAttribute('src', generateUrl(containerId, dataLayerKey));
+	scriptElement.setAttribute('async', 'true');
+
+	// Insert element to the end of the <head> element
+	const headElement = document.getElementsByTagName('head');
+	headElement[0].insertAdjacentElement('beforeend', scriptElement);
 
 	// Return a promise to make it possible to detect when GTM is ready.
 	return new Promise(function (resolve, reject) {
-		// Insert element to the end of the <head> element
-		const head = document.getElementsByTagName('head');
-		head[0].insertAdjacentElement('beforeend', scriptElement);
 
 		// Start timeout to not make GTM as a blocker
 		const timeout = setTimeout((event) => {
@@ -48,7 +59,19 @@ export function gtmLoader(containerId: string, dataLayerKey: string = 'dataLayer
 	});
 }
 
-
 function generateUrl(containerId: string, dataLayerKey: string): string {
-	return `https://www.googletagmanager.com/gtm.js?id=${containerId}${dataLayerKey !== 'dataLayer' ? '&l=' + dataLayerKey : ''}`;
+	const queryString = generateQueryString({
+		id: containerId,
+		...(dataLayerKey !== 'dataLayer' ? { l: dataLayerKey} : {})
+	})
+
+	return `https://www.googletagmanager.com/gtm.js${queryString}`;
+}
+
+function generateQueryString(params: { [key:string]: string }) {
+	return Object.keys(params).reduce((acc, key) => {
+		return acc === '' 
+			? `?${key}=${params[key]}` 
+			: `&${key}=${params[key]}`;
+	}, '')
 }
