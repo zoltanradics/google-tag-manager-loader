@@ -31,7 +31,14 @@ export default function gtmLoader(
 
 	// Create script element to load GTM main script
 	const scriptElement = document.createElement('script');
-	scriptElement.setAttribute('src', generateUrl(baseUrl, containerId, dataLayerKey));
+
+	// Construct URL with query parameters
+	const scriptSrc = generateUrl(baseUrl, {
+		id: containerId,
+		...(dataLayerKey !== 'dataLayer' ? { l: dataLayerKey } : {}),
+	});
+
+	scriptElement.setAttribute('src', scriptSrc);
 	scriptElement.setAttribute('async', 'true');
 
 	// Insert element to the end of the <head> element
@@ -62,15 +69,11 @@ export default function gtmLoader(
 	});
 }
 
-function generateUrl(baseUrl: string, containerId: string, dataLayerKey: string): string {
-	const queryString = generateQueryString({
-		id: containerId,
-		...(dataLayerKey !== 'dataLayer' ? { l: dataLayerKey } : {}),
-	});
+function generateUrl(baseUrl: string, queryParamsObject: { [key: string]: string }): string {
+	const queryString = Object.keys(queryParamsObject).reduce((acc, key) => {
+		const firstChar = acc === '' ? '?' : '&';
+		return `${firstChar}${key}=${queryParamsObject[key]}`;
+	}, '');
 
 	return `${baseUrl}${queryString}`;
-}
-
-function generateQueryString(params: { [key: string]: string }): string {
-	return Object.keys(params).reduce((acc, key) => `${acc === '' ? '?' : '&'}${key}=${params[key]}`, '');
 }
