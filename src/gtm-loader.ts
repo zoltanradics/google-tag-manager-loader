@@ -9,7 +9,13 @@
  * @returns Promise
  */
 
-export default function gtmLoader(containerId: string, dataLayerKey: string = 'dataLayer', timeoutDuration: number = 2000): Promise<Event> {
+export default function gtmLoader(
+	containerId: string,
+	dataLayerKey: string = 'dataLayer',
+	timeoutDuration: number = 2000
+): Promise<Event> {
+	const baseUrl = 'https://www.googletagmanager.com/gtm.js';
+
 	// Check if script is loaded into a browser environment
 	if (typeof window === 'undefined') {
 		throw new Error('initGTM can only loaded into a browser environment!');
@@ -25,7 +31,7 @@ export default function gtmLoader(containerId: string, dataLayerKey: string = 'd
 
 	// Create script element to load GTM main script
 	const scriptElement = document.createElement('script');
-	scriptElement.setAttribute('src', generateUrl(containerId, dataLayerKey));
+	scriptElement.setAttribute('src', generateUrl(baseUrl, containerId, dataLayerKey));
 	scriptElement.setAttribute('async', 'true');
 
 	// Insert element to the end of the <head> element
@@ -34,7 +40,6 @@ export default function gtmLoader(containerId: string, dataLayerKey: string = 'd
 
 	// Return a promise to make it possible to detect when GTM is ready.
 	return new Promise(function (resolve, reject) {
-
 		// Start timeout to not make GTM as a blocker
 		const timeout = setTimeout((event) => {
 			resolve(event);
@@ -57,19 +62,15 @@ export default function gtmLoader(containerId: string, dataLayerKey: string = 'd
 	});
 }
 
-function generateUrl(containerId: string, dataLayerKey: string): string {
+function generateUrl(baseUrl: string, containerId: string, dataLayerKey: string): string {
 	const queryString = generateQueryString({
 		id: containerId,
-		...(dataLayerKey !== 'dataLayer' ? { l: dataLayerKey} : {})
-	})
+		...(dataLayerKey !== 'dataLayer' ? { l: dataLayerKey } : {}),
+	});
 
-	return `https://www.googletagmanager.com/gtm.js${queryString}`;
+	return `${baseUrl}${queryString}`;
 }
 
-function generateQueryString(params: { [key:string]: string }) {
-	return Object.keys(params).reduce((acc, key) => {
-		return acc === '' 
-			? `?${key}=${params[key]}` 
-			: `&${key}=${params[key]}`;
-	}, '')
+function generateQueryString(params: { [key: string]: string }): string {
+	return Object.keys(params).reduce((acc, key) => `${acc === '' ? '?' : '&'}${key}=${params[key]}`, '');
 }
