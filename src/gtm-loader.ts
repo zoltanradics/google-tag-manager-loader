@@ -71,8 +71,7 @@ export default function gtmLoader(
 
 function generateUrl(baseUrl: string, queryParamsObject: { [key: string]: string }): string {
 	const queryString = Object.keys(queryParamsObject).reduce((acc, key) => {
-		const firstChar = acc === '' ? '?' : '&';
-		return `${firstChar}${key}=${queryParamsObject[key]}`;
+		return `${acc === '' ? '?' : '&'}${key}=${queryParamsObject[key]}`;
 	}, '');
 
 	return `${baseUrl}${queryString}`;
