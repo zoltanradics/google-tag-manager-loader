@@ -1,10 +1,8 @@
-
 /**
- * 
- * GTM Loader
- * 
- * 
- * 
+ *
+ * Google Tag Manager (GTM) script Loader
+ * GTM script loader helps you to init GTM async
+ *
  * @param containerId (string)
  * @param dataLayerKey (string)
  * @param timeoutDuration (integer)
