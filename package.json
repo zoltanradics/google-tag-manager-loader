@@ -1,35 +1,43 @@
 {
-  "name": "gtm-loader",
-  "version": "0.1.0",
-  "description": "Async loader for Google Tag Manager sdk",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf dist/**",
-    "build": "npm run clean && parcel build",
-    "postinstall": "npm run build"
-  },
-  "keywords": [
-    "gtm",
-    "google-tag-manager",
-    "googletagmanager",
-    "google",
-    "tracking",
-    "analytics"
-  ],
-  "author": "Zoltan Radics (zoltan.radics@gmail.com)",
-  "license": "ISC",
-  "devDependencies": {
-    "@parcel/transformer-typescript-tsc": "^2.9.3",
-    "parcel": "^2.9.3",
-    "typescript": "^4.9.5"
-  },
-  "targets": {
-    "default-gtm-loader": {
-      "source": "src/gtm-loader.ts",
-      "context": "browser",
-      "distDir": "dist/",
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    }
-  }
+	"name": "gtm-loader",
+	"version": "0.1.0",
+	"description": "Async loader for Google Tag Manager sdk",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"parcel": "parcel",
+		"clean": "rm -rf dist/**",
+		"build": "npm run clean && parcel build",
+		"postinstall": "npm run build"
+	},
+	"keywords": [
+		"gtm",
+		"google-tag-manager",
+		"googletagmanager",
+		"google",
+		"tracking",
+		"analytics"
+	],
+	"author": "Zoltan Radics (zoltan.radics@gmail.com)",
+	"license": "ISC",
+	"devDependencies": {
+		"@parcel/transformer-typescript-tsc": "^2.9.3",
+		"parcel": "^2.9.3",
+		"typescript": "^4.9.5",
+		"prettier": "^3.0.3"
+	},
+	"targets": {
+		"gtm-loader-esmodule": {
+			"source": "src/gtm-loader.ts",
+			"context": "browser",
+			"distDir": "dist/",
+			"outputFormat": "esmodule",
+			"isLibrary": true
+		},
+		"gtm-loader-global": {
+			"source": "src/gtm-loader.ts",
+			"context": "browser",
+			"distDir": "dist/",
+			"outputFormat": "global"
+		}
+	}
 }
