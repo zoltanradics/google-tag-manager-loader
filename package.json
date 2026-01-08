@@ -1,6 +1,6 @@
 {
   "name": "@zoltanradics/gtm-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Google Tag Manager (GTM) script loader",
   "type": "module",
   "main": "./dist/google-tag-manager-loader.js",
