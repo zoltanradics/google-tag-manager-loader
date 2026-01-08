@@ -1,5 +1,5 @@
 {
-  "name": "@zoltanradics/google-tag-manager-loader",
+  "name": "@zoltanradics/gtm-loader",
   "version": "1.0.0",
   "description": "Google Tag Manager (GTM) script loader",
   "type": "module",
@@ -21,7 +21,8 @@
     "preview": "vite preview",
     "demo:dev": "vite --config vite.demo.config.ts",
     "demo:build": "vite build --config vite.demo.config.ts",
-    "demo:preview": "vite preview --config vite.demo.config.ts --outDir dist-demo"
+    "demo:preview": "vite preview --config vite.demo.config.ts --outDir dist-demo",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "gtm",
@@ -31,6 +32,17 @@
   ],
   "author": "Zoltan Radics",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoltanradics/google-tag-manager-loader.git"
+  },
+  "homepage": "https://github.com/zoltanradics/google-tag-manager-loader#readme",
+  "bugs": {
+    "url": "https://github.com/zoltanradics/google-tag-manager-loader/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "typescript": "^5.7.2",
     "vite": "^6.0.5",
