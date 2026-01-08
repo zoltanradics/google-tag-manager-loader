@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Tag Manager Loader - Dev</title>
+  </head>
+  <body>
+    <h1>Google Tag Manager Loader Development</h1>
+    <p>Check the console for GTM loading status.</p>
+    <script type="module">
+      import googleTagManagerLoader from './src/google-tag-manager-loader.ts';
+
+      // Example usage - replace with your GTM container ID
+      googleTagManagerLoader('GTM-XXXXXX')
+        .then(() => {
+          console.log('GTM loaded successfully!');
+        })
+        .catch((error) => {
+          console.error('GTM loading failed:', error);
+        });
+    </script>
+  </body>
+</html>

@@ -1,38 +1,42 @@
 {
-	"name": "@zoltanradics/gtm-loader",
-	"version": "0.1.0",
-	"description": "Async loader for Google Tag Manager sdk",
-	"browserslist": "> 0.5%, last 5 versions, not dead",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"parcel": "parcel",
-		"clean": "rm -rf dist/**",
-		"build": "npm run clean && npm run parcel build",
-		"postinstall": "npm run build"
-	},
-	"keywords": [
-		"gtm",
-		"google-tag-manager",
-		"googletagmanager",
-		"google",
-		"tracking",
-		"analytics"
-	],
-	"author": "Zoltan Radics (zoltan.radics@gmail.com)",
-	"license": "ISC",
-	"devDependencies": {
-		"@parcel/transformer-typescript-tsc": "^2.9.3",
-		"parcel": "^2.9.3",
-		"prettier": "^3.0.3",
-		"typescript": "^4.9.5"
-	},
-	"targets": {
-		"gtm-loader-esmodule": {
-			"source": "src/gtm-loader.ts",
-			"context": "browser",
-			"distDir": "dist/",
-			"outputFormat": "esmodule",
-			"isLibrary": true
-		}
-	}
+  "name": "@zoltanradics/google-tag-manager-loader",
+  "version": "1.0.0",
+  "description": "Google Tag Manager (GTM) script loader",
+  "type": "module",
+  "main": "./dist/google-tag-manager-loader.js",
+  "module": "./dist/google-tag-manager-loader.js",
+  "types": "./dist/google-tag-manager-loader.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/google-tag-manager-loader.js",
+      "types": "./dist/google-tag-manager-loader.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "demo:dev": "vite --config vite.demo.config.ts",
+    "demo:build": "vite build --config vite.demo.config.ts",
+    "demo:preview": "vite preview --config vite.demo.config.ts --outDir dist-demo"
+  },
+  "keywords": [
+    "gtm",
+    "google-tag-manager",
+    "analytics",
+    "tracking"
+  ],
+  "author": "Zoltan Radics",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vite-plugin-dts": "^4.3.0"
+  },
+  "dependencies": {
+    "@zoltanradics/dynamic-script-injector": "^0.1.0"
+  }
 }

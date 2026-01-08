@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Tag Manager Loader - Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Google Tag Manager Loader</h1>
+            <p class="subtitle">Async GTM script loader with dynamic-script-injector</p>
+        </header>
+
+        <section class="demo-section">
+            <h2>Demo</h2>
+            <div class="info-box">
+                <strong>GTM Container ID:</strong> GTM-TJC7PXJ6
+            </div>
+
+            <button id="loadGtm" class="btn-primary">Load Google Tag Manager</button>
+
+            <div id="status" class="status-box hidden">
+                <div class="status-indicator">
+                    <span class="spinner"></span>
+                    <span id="statusText">Loading...</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="logs-section">
+            <h2>Event Log</h2>
+            <div id="logContainer" class="log-container">
+                <div class="log-entry log-info">
+                    <span class="timestamp"></span>
+                    <span class="message">Ready to load GTM. Click the button above.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="datalayer-section">
+            <h2>DataLayer Contents</h2>
+            <button id="refreshDataLayer" class="btn-secondary">Refresh DataLayer</button>
+            <pre id="dataLayerContent" class="code-block">dataLayer not initialized</pre>
+        </section>
+
+        <section class="info-section">
+            <h2>How It Works</h2>
+            <ol>
+                <li>Click "Load Google Tag Manager" button</li>
+                <li>The <code>googleTagManagerLoader()</code> function is called with container ID</li>
+                <li>It initializes the dataLayer with GTM start event</li>
+                <li>Uses <code>@zoltanradics/dynamic-script-injector</code> to load gtm.js</li>
+                <li>Returns a Promise that resolves when GTM is loaded</li>
+                <li>GTM tags and triggers will fire automatically based on your configuration</li>
+            </ol>
+        </section>
+
+        <footer>
+            <p>
+                <a href="https://github.com/zoltanradics/google-tag-manager-loader" target="_blank">GitHub Repository</a> |
+                <a href="https://www.npmjs.com/package/@zoltanradics/google-tag-manager-loader" target="_blank">NPM Package</a>
+            </p>
+        </footer>
+    </div>
+
+    <script type="module" src="./demo.js"></script>
+</body>
+</html>
