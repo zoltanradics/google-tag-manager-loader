@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@zoltanradics/google-tag-manager-loader.svg)](https://www.npmjs.com/package/@zoltanradics/google-tag-manager-loader)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A lightweight, promise-based Google Tag Manager (GTM) script loader for modern web applications. Built with TypeScript and powered by [@zoltanradics/dynamic-script-injector](https://www.npmjs.com/package/@zoltanradics/dynamic-script-injector).
+A lightweight, promise-based Google Tag Manager (GTM) script loader for modern web applications. Built with TypeScript and powered by [@zoltanradics/async-script-loader](https://www.npmjs.com/package/@zoltanradics/async-script-loader).
 
 ## Features
 
@@ -139,7 +139,7 @@ Loads the Google Tag Manager script asynchronously.
 
 1. **Environment Check** - Verifies execution in a browser environment
 2. **DataLayer Initialization** - Creates or uses existing `window.dataLayer` with GTM start event
-3. **Script Injection** - Uses `@zoltanradics/dynamic-script-injector` to load `gtm.js`
+3. **Script Injection** - Uses `@zoltanradics/async-script-loader` to load `gtm.js`
 4. **Promise Resolution** - Returns promise that resolves when script loads successfully
 
 ## Browser Support
@@ -208,7 +208,7 @@ npm run demo:build
 
 ## Related Packages
 
-- [@zoltanradics/dynamic-script-injector](https://www.npmjs.com/package/@zoltanradics/dynamic-script-injector) - The underlying script injection library
+- [@zoltanradics/async-script-loader](https://www.npmjs.com/package/@zoltanradics/async-script-loader) - The underlying script injection library
 
 ## Contributing
 

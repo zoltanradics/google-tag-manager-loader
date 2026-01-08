@@ -1,4 +1,4 @@
-import { dynamicScriptInjector } from '@zoltanradics/dynamic-script-injector';
+import { asyncScriptLoader } from '@zoltanradics/async-script-loader';
 
 /**
  * Google Tag Manager (GTM) Loader
@@ -34,5 +34,5 @@ export default function googleTagManagerLoader(
 	};
 
 	// Use dynamic script injector to load GTM
-	return dynamicScriptInjector(baseUrl, queryParams);
+	return asyncScriptLoader(baseUrl, queryParams);
 }

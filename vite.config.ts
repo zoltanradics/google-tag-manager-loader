@@ -17,10 +17,10 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['@zoltanradics/dynamic-script-injector'],
+      external: ['@zoltanradics/async-script-loader'],
       output: {
         globals: {
-          '@zoltanradics/dynamic-script-injector': 'DynamicScriptInjector',
+          '@zoltanradics/async-script-loader': 'asyncScriptLoader',
         },
       },
     },

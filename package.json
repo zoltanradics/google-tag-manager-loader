@@ -49,6 +49,6 @@
     "vite-plugin-dts": "^4.3.0"
   },
   "dependencies": {
-    "@zoltanradics/dynamic-script-injector": "^0.1.0"
+    "@zoltanradics/async-script-loader": "^0.1.0"
   }
 }
