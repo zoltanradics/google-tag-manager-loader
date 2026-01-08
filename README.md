@@ -152,7 +152,7 @@ Works in all modern browsers that support:
 
 ## Demo
 
-Check out the [live demo](https://your-demo-url.com) to see the loader in action with real-time logging and dataLayer monitoring.
+Check out the [live demo](http://gtm-loader.radics.io/) to see the loader in action with real-time logging and dataLayer monitoring.
 
 ## Development
 
