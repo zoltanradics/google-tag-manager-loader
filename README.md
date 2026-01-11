@@ -214,15 +214,15 @@ npm run demo:build
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-MIT © [Zoltan Radics](https://github.com/zoltanradics)
-
 ## Support
 
 - **Issues**: [GitHub Issues](https://github.com/zoltanradics/google-tag-manager-loader/issues)
 - **NPM**: [@zoltanradics/google-tag-manager-loader](https://www.npmjs.com/package/@zoltanradics/google-tag-manager-loader)
 
 ---
+
+## License
+
+MIT © [Zoltan Radics](https://github.com/zoltanradics)
 
 Made with ❤️ by [Zoltan Radics](https://github.com/zoltanradics)
