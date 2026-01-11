@@ -16,29 +16,29 @@ export default function googleTagManagerLoader(
 
 	// Check if script is loaded into a browser environment
 	if (typeof window === 'undefined') {
-		throw new Error('gtmLoader can only be loaded in a browser environment!');
+		return Promise.reject(new Error('gtmLoader can only be loaded in a browser environment!'));
 	}
 
 	// Validate containerId is provided and not empty
 	if (typeof containerId !== 'string' || containerId.trim() === '') {
-		throw new Error('Container id must be a non-empty string!');
+		return Promise.reject(new Error('Container id must be a non-empty string!'));
 	}
 
 	// Validate GTM container ID format (GTM-XXXXXX or GTM-XXXXXXX)
 	const gtmIdPattern = /^GTM-[A-Z0-9]{6,8}$/;
 	if (!gtmIdPattern.test(containerId)) {
-		throw new Error('Invalid GTM container ID format. Expected format: GTM-XXXXXX (e.g., GTM-ABC123)');
+		return Promise.reject(new Error('Invalid GTM container ID format. Expected format: GTM-XXXXXX (e.g., GTM-ABC123)'));
 	}
 
 	// Validate dataLayerKey is not empty
 	if (typeof dataLayerKey !== 'string' || dataLayerKey.trim() === '') {
-		throw new Error('dataLayerKey must be a non-empty string!');
+		return Promise.reject(new Error('dataLayerKey must be a non-empty string!'));
 	}
 
 	// Validate dataLayerKey is a valid JavaScript identifier
 	const validIdentifierPattern = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
 	if (!validIdentifierPattern.test(dataLayerKey)) {
-		throw new Error('dataLayerKey must be a valid JavaScript identifier (no spaces or special characters)!');
+		return Promise.reject(new Error('dataLayerKey must be a valid JavaScript identifier (no spaces or special characters)!'));
 	}
 
 	// Prepare dataLayer array for GTM
