@@ -34,11 +34,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zoltanradics/google-tag-manager-loader.git"
+    "url": "git+https://github.com/zoltanradics/gtm-loader.git"
   },
-  "homepage": "https://github.com/zoltanradics/google-tag-manager-loader#readme",
+  "homepage": "https://github.com/zoltanradics/gtm-loader#readme",
   "bugs": {
-    "url": "https://github.com/zoltanradics/google-tag-manager-loader/issues"
+    "url": "https://github.com/zoltanradics/gtm-loader/issues"
   },
   "publishConfig": {
     "access": "public"

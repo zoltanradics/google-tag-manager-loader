@@ -1,6 +1,6 @@
 # Google Tag Manager Loader
 
-[![npm version](https://img.shields.io/npm/v/@zoltanradics/google-tag-manager-loader.svg)](https://www.npmjs.com/package/@zoltanradics/gtm-loader)
+[![npm version](https://img.shields.io/npm/v/@zoltanradics/gtm-loader.svg)](https://www.npmjs.com/package/@zoltanradics/gtm-loader)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A lightweight, promise-based Google Tag Manager (GTM) script loader for modern web applications. Built with TypeScript and powered by [@zoltanradics/async-script-loader](https://www.npmjs.com/package/@zoltanradics/async-script-loader).
@@ -18,19 +18,19 @@ A lightweight, promise-based Google Tag Manager (GTM) script loader for modern w
 ## Installation
 
 ```bash
-npm install @zoltanradics/google-tag-manager-loader
+npm install @zoltanradics/gtm-loader
 ```
 
 Or with yarn:
 
 ```bash
-yarn add @zoltanradics/google-tag-manager-loader
+yarn add @zoltanradics/gtm-loader
 ```
 
 Or with pnpm:
 
 ```bash
-pnpm add @zoltanradics/google-tag-manager-loader
+pnpm add @zoltanradics/gtm-loader
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ pnpm add @zoltanradics/google-tag-manager-loader
 ### Basic Usage
 
 ```typescript
-import googleTagManagerLoader from '@zoltanradics/google-tag-manager-loader';
+import googleTagManagerLoader from '@zoltanradics/gtm-loader';
 
 // Load GTM with your container ID
 googleTagManagerLoader('GTM-XXXXXX')
@@ -54,7 +54,7 @@ googleTagManagerLoader('GTM-XXXXXX')
 ### With Async/Await
 
 ```typescript
-import googleTagManagerLoader from '@zoltanradics/google-tag-manager-loader';
+import googleTagManagerLoader from '@zoltanradics/gtm-loader';
 
 async function initializeAnalytics() {
   try {
@@ -71,7 +71,7 @@ initializeAnalytics();
 ### Custom DataLayer Name
 
 ```typescript
-import googleTagManagerLoader from '@zoltanradics/google-tag-manager-loader';
+import googleTagManagerLoader from '@zoltanradics/gtm-loader';
 
 // Use a custom dataLayer name
 googleTagManagerLoader('GTM-XXXXXX', 'myCustomDataLayer')
@@ -84,7 +84,7 @@ googleTagManagerLoader('GTM-XXXXXX', 'myCustomDataLayer')
 
 ```tsx
 import { useEffect } from 'react';
-import googleTagManagerLoader from '@zoltanradics/google-tag-manager-loader';
+import googleTagManagerLoader from '@zoltanradics/gtm-loader';
 
 function App() {
   useEffect(() => {
@@ -102,7 +102,7 @@ function App() {
 ```vue
 <script setup>
 import { onMounted } from 'vue';
-import googleTagManagerLoader from '@zoltanradics/google-tag-manager-loader';
+import googleTagManagerLoader from '@zoltanradics/gtm-loader';
 
 onMounted(async () => {
   try {
@@ -216,8 +216,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/zoltanradics/google-tag-manager-loader/issues)
-- **NPM**: [@zoltanradics/google-tag-manager-loader](https://www.npmjs.com/package/@zoltanradics/google-tag-manager-loader)
+- **Issues**: [GitHub Issues](https://github.com/zoltanradics/gtm-loader/issues)
+- **NPM**: [@zoltanradics/gtm-loader](https://www.npmjs.com/package/@zoltanradics/gtm-loader)
 
 ---
 
