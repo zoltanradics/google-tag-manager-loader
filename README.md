@@ -1,6 +1,6 @@
 # Google Tag Manager Loader
 
-[![npm version](https://img.shields.io/npm/v/@zoltanradics/google-tag-manager-loader.svg)](https://www.npmjs.com/package/@zoltanradics/google-tag-manager-loader)
+[![npm version](https://img.shields.io/npm/v/@zoltanradics/google-tag-manager-loader.svg)](https://www.npmjs.com/package/@zoltanradics/gtm-loader)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A lightweight, promise-based Google Tag Manager (GTM) script loader for modern web applications. Built with TypeScript and powered by [@zoltanradics/async-script-loader](https://www.npmjs.com/package/@zoltanradics/async-script-loader).
